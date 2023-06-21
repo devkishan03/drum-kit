@@ -4,6 +4,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function (){
       var innerHTML= this.innerHTML;
        //for mouse click;
       playbykeyboard(innerHTML);
+      flshbutton(innerHTML);
 });
 
 }
@@ -11,7 +12,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function (){
 document.addEventListener("keypress",function(event){
     
       playbykeyboard(event.key);
-     
+      flshbutton(event.key);
 });
 
 
@@ -44,3 +45,9 @@ function playbykeyboard(key){
           }
 }
 
+function flshbutton(key){
+ var k=document.querySelector("."+key);
+  k.classList.add("pressed");
+ setTimeout(function(){k.classList.remove("pressed")},100);
+  
+}
